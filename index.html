@@ -37,29 +37,22 @@
       letter-spacing: 0.03em;
     }
 
-    /* Logo block */
-    .logo-block {
-      font-family: 'Courier New', 'Georgia', monospace;
-      font-weight: 400;
-      line-height: 1.1;
+    /* Logo area — now using the uploaded image */
+    .logo-area {
       border-bottom: 1px solid #b1b9aa;
-      padding-bottom: 1.2rem;
+      padding-bottom: 1.5rem;
       margin-bottom: 1.8rem;
+      text-align: left;
     }
-    .logo-line {
-      display: block;
-      font-size: 4rem;
-      letter-spacing: -0.02em;
-      text-transform: uppercase;
-      color: #1e3528;
-    }
-    .logo-line:nth-child(2) {
-      font-size: 3.4rem;
-      margin-top: -0.2rem;
-    }
-    .logo-line:nth-child(3) {
-      font-size: 3rem;
-      margin-top: -0.2rem;
+    .logo-image {
+      max-width: 100%;
+      height: auto;
+      max-height: 150px;
+      width: auto;
+      filter: grayscale(0.2) contrast(1.02);
+      border: 1px solid #d0d9cc;
+      padding: 0.3rem;
+      background: #f8faf5;
     }
 
     h2 {
@@ -297,7 +290,6 @@
     body[data-lang="en"] .lang-el {
       display: none;
     }
-    /* for inline elements that need language toggling */
     .lang-el, .lang-en {
       display: none;
     }
@@ -321,11 +313,9 @@
     <button class="lang-btn" id="btn-en">ENG</button>
   </div>
 
-  <!-- LOGO: same in both languages (no change needed) -->
-  <div class="logo-block">
-    <span class="logo-line">GAVDOS</span>
-    <span class="logo-line">SEAFRONT</span>
-    <span class="logo-line">COLLECTIVE</span>
+  <!-- LOGO: using the uploaded image afc8d8763a6f51501e7354f830ee1d90-V.jpg -->
+  <div class="logo-area">
+    <img src="images/afc8d8763a6f51501e7354f830ee1d90-V.jpg" alt="Gavdos SeaFront Collective logo" class="logo-image" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'150\' viewBox=\'0 0 400 150\'%3E%3Crect width=\'400\' height=\'150\' fill=\'%23b7c9b0\'/%3E%3Ctext x=\'40\' y=\'90\' font-family=\'Georgia\' font-size=\'32\' fill=\'%23243b2b\'%3EGAVDOS%3C/text%3E%3C/svg%3E';">
   </div>
 
   <!-- bilingual tagline (switches) -->
@@ -480,4 +470,4 @@
   })();
 </script>
 </body>
-</html>
+           </html>

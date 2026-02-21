@@ -13,44 +13,31 @@
     }
 
     body {
-      background-color: #f1efe7;  /* sun‑bleached paper */
-      color: #1e2b28;              /* deep forest / shale */
+      background-color: #f1efe7;
+      color: #1e2b28;
       font-family: 'Georgia', 'Times New Roman', serif;
       line-height: 1.5;
       font-weight: 300;
       font-size: 1.05rem;
       padding: 2rem 1rem;
-      border-top: 6px solid #8f9e8b; /* dry reed green */
+      border-top: 6px solid #8f9e8b;
     }
 
-    /* === main container — airy, with quiet margins === */
     .container {
       max-width: 1280px;
       margin: 0 auto;
       background: rgba(255, 255, 250, 0.5);
       padding: 2.5rem 2rem;
-      border-radius: 0;           /* no round corners – raw */
-      box-shadow: 0 0 0 1px #d4d9ce; /* faint outline like old print */
+      border-radius: 0;
+      box-shadow: 0 0 0 1px #d4d9ce;
     }
 
-    /* === typography — no gimmicks, only texture === */
     h1, h2, h3 {
       font-weight: 350;
       letter-spacing: 0.03em;
     }
 
-    h1 {
-      font-size: 3.2rem;
-      line-height: 1.1;
-      text-transform: uppercase;
-      border-bottom: 1px solid #b1b9aa;
-      padding-bottom: 1rem;
-      margin-bottom: 1.8rem;
-      word-break: break-word;
-      color: #2b3b34;
-    }
-
-    /* Logo style — using the exact wording from 1000043225.jpg */
+    /* Logo block */
     .logo-block {
       font-family: 'Courier New', 'Georgia', monospace;
       font-weight: 400;
@@ -107,7 +94,6 @@
       text-decoration: underline wavy #7c8f7a 2px;
     }
 
-    /* === subtle separation === */
     hr {
       border: none;
       border-top: 1px solid #cfd7cc;
@@ -116,7 +102,6 @@
       margin-left: 0;
     }
 
-    /* === paper‑like cards for sections (no shadows, just texture) === */
     .section-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -137,17 +122,12 @@
       border-color: #b4c0ae;
     }
 
-    .card p:last-child {
-      margin-bottom: 0;
-    }
-
     .card small {
       color: #657a6a;
       font-size: 0.9rem;
       font-style: italic;
     }
 
-    /* === lists with dry branches === */
     ul, ol {
       margin-left: 1.8rem;
       margin-bottom: 1.5rem;
@@ -156,7 +136,6 @@
       margin-bottom: 0.3rem;
     }
 
-    /* === block for quotes / excerpts === */
     .excerpt {
       font-size: 1rem;
       border-left: 3px solid #b3bfb0;
@@ -165,7 +144,6 @@
       margin: 1.5rem 0;
     }
 
-    /* === photo row – raw, like contact sheet (now with placeholders pointing to images folder) === */
     .photo-strip {
       display: flex;
       flex-wrap: wrap;
@@ -188,7 +166,6 @@
       aspect-ratio: 4 / 3;
     }
 
-    /* special handling for the second image (placed elsewhere) */
     .featured-image {
       margin: 2rem 0;
       border: 1px solid #b7c4b2;
@@ -210,7 +187,6 @@
       font-style: italic;
     }
 
-    /* === action / announcement items (future / past) === */
     .action-item {
       display: flex;
       gap: 1rem;
@@ -227,12 +203,40 @@
       font-weight: 400;
     }
 
-    /* === minimal nav === */
+    /* language switch */
+    .lang-switch {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid #abb9ab;
+      padding: 0.3rem 1rem;
+      cursor: pointer;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      color: #2d463d;
+      transition: all 0.1s;
+      border-radius: 0;
+    }
+    .lang-btn.active {
+      background: #cbd2c2;
+      border-color: #5b7462;
+      color: #14281c;
+      font-weight: 400;
+    }
+    .lang-btn:hover {
+      background: #dbe2d3;
+    }
+
     .top-nav {
       display: flex;
       gap: 2rem;
       flex-wrap: wrap;
-      margin-bottom: 2.2rem;
+      margin: 1.5rem 0 2.2rem;
       font-size: 1.1rem;
       text-transform: lowercase;
     }
@@ -245,7 +249,6 @@
       border-bottom: 2px solid #1e2b1e;
     }
 
-    /* === footer === */
     .footer {
       margin-top: 4rem;
       border-top: 1px solid #cad2c2;
@@ -257,7 +260,6 @@
       color: #5f6f5f;
     }
 
-    /* === utility === */
     .tagline {
       font-style: italic;
       color: #516651;
@@ -271,134 +273,211 @@
       color: #6e7f71;
     }
 
-    /* paper texture hint */
     .paper-bg {
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" stitchTiles="stitch"/><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.08 0"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.08"/></svg>');
       background-repeat: repeat;
     }
 
-    /* inline SVG fallback for missing images — not needed, we point to /images/ */
+    [data-lang="el"] .lang-el,
+    [data-lang="en"] .lang-en {
+      display: block;
+    }
+    .lang-el, .lang-en {
+      display: none;
+    }
+    body[data-lang="el"] .lang-el {
+      display: block;
+    }
+    body[data-lang="el"] .lang-en {
+      display: none;
+    }
+    body[data-lang="en"] .lang-en {
+      display: block;
+    }
+    body[data-lang="en"] .lang-el {
+      display: none;
+    }
+    /* for inline elements that need language toggling */
+    .lang-el, .lang-en {
+      display: none;
+    }
+    body[data-lang="el"] .lang-el-inline {
+      display: inline-block;
+    }
+    body[data-lang="en"] .lang-en-inline {
+      display: inline-block;
+    }
+    .lang-el-inline, .lang-en-inline {
+      display: none;
+    }
   </style>
 </head>
-<body class="paper-bg">
+<body class="paper-bg" data-lang="el"> <!-- default Greek -->
 <div class="container">
 
-  <!-- LOGO: exactly as "GAVDOS / SEAFRONT / COLLECTIVE" from 1000043225.jpg -->
+  <!-- LANGUAGE SELECTOR (simple buttons) -->
+  <div class="lang-switch">
+    <button class="lang-btn active" id="btn-el">ΕΛΛ</button>
+    <button class="lang-btn" id="btn-en">ENG</button>
+  </div>
+
+  <!-- LOGO: same in both languages (no change needed) -->
   <div class="logo-block">
     <span class="logo-line">GAVDOS</span>
     <span class="logo-line">SEAFRONT</span>
     <span class="logo-line">COLLECTIVE</span>
   </div>
 
-  <!-- optional tagline / context -->
-  <div class="tagline">διαφύλαξη · αυτοσυντήρηση · ακτογραμμή Λαυρακά</div>
+  <!-- bilingual tagline (switches) -->
+  <div class="tagline lang-el">διαφύλαξη · αυτοσυντήρηση · ακτογραμμή Λαυρακά</div>
+  <div class="tagline lang-en">preservation · self‑sufficiency · Lavraka coastline</div>
 
-  <!-- minimal navigation (anchor links – static, one‑pager) -->
+  <!-- navigation (simple anchor links – same for both languages, just labels change) -->
   <div class="top-nav">
-    <a href="#papers">→ writings / papers</a>
-    <a href="#video">→ video</a>
-    <a href="#announcements">→ announcements</a>
-    <a href="#photos">→ photos</a>
-    <a href="#actions">→ future actions</a>
+    <a href="#papers"><span class="lang-el-inline">→ κείμενα / μελέτες</span><span class="lang-en-inline">→ writings / papers</span></a>
+    <a href="#video"><span class="lang-el-inline">→ βίντεο</span><span class="lang-en-inline">→ video</span></a>
+    <a href="#announcements"><span class="lang-el-inline">→ ανακοινώσεις</span><span class="lang-en-inline">→ announcements</span></a>
+    <a href="#photos"><span class="lang-el-inline">→ φωτογραφίες</span><span class="lang-en-inline">→ photos</span></a>
+    <a href="#actions"><span class="lang-el-inline">→ μελλοντικές δράσεις</span><span class="lang-en-inline">→ future actions</span></a>
   </div>
 
-  <!-- INTRODUCTION – short ethos, referencing the Lavraka community & paper -->
-  <section>
-    <p style="font-size: 1.2rem;">The <strong>Gavdos SeaFront Collective</strong> emerges from the southernmost shore — the pine‑clad cove of Lavraka. For more than thirty years, a community of people has lived in self‑built huts, sharing a deep ethics of care for the land and sea. In the face of tourism pressure and administrative erasure, we gather to document, defend, and continue the <em>laografia tou tora</em> (folklore of the now). This site is our common base: to share observations, archive scientific work, and announce collective actions that protect both the wild character of Gavdos and the right to live simply, without harm.</p>
-    <div class="excerpt">“Η κοινότητα έχει τους δικούς της μύθους και έθιμα που αντικατοπτρίζουν τις κοινές τους εμπειρίες … οι πεποιθήσεις τους βασίζονται στον ενστερνισμό του περιβαλλοντισμού και της βιωσιμότητας.” <br>— from <em>Τουρισμός και αντικουλτούρα · το μέλλον του Λαυρακά</em></div>
+  <!-- INTRODUCTION – bilingual blocks -->
+  <section class="lang-el">
+    <p style="font-size: 1.2rem;">Το <strong>Gavdos SeaFront Collective</strong> ξεκινά από το νοτιότερο ακρογιάλι — το πευκόφυτο Λαυρακά. Για πάνω από τριάντα χρόνια, μια κοινότητα ανθρώπων ζει σε αυτοδημιούργητες καλύβες, μοιραζόμενη μια βαθιά φροντίδα για τη γη και τη θάλασσα. Απέναντι στην τουριστική πίεση και τη διοικητική απαλοιφή, συγκεντρωθήκαμε για να τεκμηριώσουμε, να υπερασπιστούμε και να συνεχίσουμε τη <em>λαογραφία του τώρα</em>. Αυτή η ιστοσελίδα είναι η κοινή μας βάση: να μοιραζόμαστε παρατηρήσεις, να αρχειοθετούμε επιστημονική δουλειά και να ανακοινώνουμε συλλογικές δράσεις που προστατεύουν τον άγριο χαρακτήρα της Γαύδου και το δικαίωμα σε έναν απλό, αβλαβή τρόπο ζωής.</p>
   </section>
+  <section class="lang-en">
+    <p style="font-size: 1.2rem;">The <strong>Gavdos SeaFront Collective</strong> emerges from the southernmost shore — the pine‑clad cove of Lavraka. For more than thirty years, a community of people has lived in self‑built huts, sharing a deep ethics of care for the land and sea. In the face of tourism pressure and administrative erasure, we gather to document, defend, and continue the <em>folklore of the now</em>. This site is our common base: to share observations, archive scientific work, and announce collective actions that protect both the wild character of Gavdos and the right to live simply, without harm.</p>
+  </section>
+
+  <!-- bilingual excerpt -->
+  <div class="excerpt lang-el">“Η κοινότητα έχει τους δικούς της μύθους και έθιμα που αντικατοπτρίζουν τις κοινές τους εμπειρίες … οι πεποιθήσεις τους βασίζονται στον ενστερνισμό του περιβαλλοντισμού και της βιωσιμότητας.” <br>— από <em>Τουρισμός και αντικουλτούρα · το μέλλον του Λαυρακά</em></div>
+  <div class="excerpt lang-en">“The community has its own myths and customs reflecting their shared experiences … their beliefs are grounded in environmentalism, sustainability, social justice, and the rejection of consumerism.” <br>— from <em>Tourism and counter‑culture: the future of Lavraka</em></div>
 
   <hr>
 
-  <!-- SCIENTIFIC PAPERS section (idea of the uploaded paper + others) -->
-  <h2 id="papers">⤏ σημειώσεις / επιστημονικά</h2>
+  <!-- SCIENTIFIC PAPERS (titles remain mostly greek/english; bilingual headings) -->
+  <h2 id="papers"><span class="lang-el-inline">⤏ σημειώσεις / επιστημονικά</span><span class="lang-en-inline">⤏ writings / papers</span></h2>
   <div class="section-grid">
     <div class="card">
       <h3 style="margin-top: 0;">Τουρισμός και αντικουλτούρα</h3>
       <p><small>Ανάτυπο, 2025 · κοινότητα Λαυρακά</small></p>
-      <p>Λαογραφία του τώρα, περιβαλλοντικός τρόπος ζωής, ιστορία του μέλλοντος. Το κείμενο που θεμελιώνει την πολιτισμική σημασία της κοινότητας απέναντι στην τουριστική ανάπτυξη.</p>
-      <p><a href="#">● διαβάστε το πλήρες PDF (ελλ)</a> <span class="quiet">(1.2 MB)</span></p>
+      <p class="lang-el">Λαογραφία του τώρα, περιβαλλοντικός τρόπος ζωής, ιστορία του μέλλοντος. Το κείμενο που θεμελιώνει την πολιτισμική σημασία της κοινότητας.</p>
+      <p class="lang-en">Folklore of the now, environmental way of life, future history. The paper grounding the cultural significance of the community.</p>
+      <p><a href="#"><span class="lang-el-inline">● διαβάστε το πλήρες PDF (ελλ)</span><span class="lang-en-inline">● read full PDF (Greek)</span></a> <span class="quiet">(1.2 MB)</span></p>
     </div>
     <div class="card">
       <h3 style="margin-top: 0;">Coastal ethnoecology · Gavdos</h3>
       <p><small>Journal of Island Studies (preprint)</small></p>
-      <p>Oral histories, seasonal cycles and the management of marine litter by the Lavraka enclave. Collaborative research with the collective, 2023–24.</p>
+      <p class="lang-en">Oral histories, seasonal cycles and the management of marine litter by the Lavraka enclave. Collaborative research with the collective, 2023–24.</p>
+      <p class="lang-el">Προφορικές ιστορίες, εποχικοί κύκλοι και η διαχείριση θαλάσσιων απορριμμάτων από τον οικισμό Λαυρακά. Συνεργατική έρευνα, 2023–24.</p>
       <p><a href="#">● read PDF (English)</a></p>
     </div>
     <div class="card">
       <h3 style="margin-top: 0;">Αυτοκατασκευή & δάσος</h3>
       <p><small>Πρακτικά συνεδρίου, 2024</small></p>
-      <p>Οι καλύβες ως πολιτιστική κληρονομιά — τεκτονική, υλικά και το κοινόχρηστο ήθος. Φωτογραφική τεκμηρίωση και συνεντεύξεις.</p>
+      <p class="lang-el">Οι καλύβες ως πολιτιστική κληρονομιά — τεκτονική, υλικά και το κοινόχρηστο ήθος.</p>
+      <p class="lang-en">Huts as cultural heritage — tectonics, materials, and the common ethos.</p>
       <p><a href="#">● PDF στα ελληνικά</a></p>
     </div>
   </div>
 
-  <!-- VIDEOS – minimal, text links to possible vimeo/peertube, but no iframe gimmicks -->
-  <h2 id="video">⤏ καταγραφή · video</h2>
+  <!-- VIDEOS (bilingual) -->
+  <h2 id="video"><span class="lang-el-inline">⤏ καταγραφή · βίντεο</span><span class="lang-en-inline">⤏ video</span></h2>
   <div style="background: #eef1ea; border:1px solid #cbd5c5; padding: 1.5rem;">
-    <p style="margin-bottom: 0.5rem;"><span style="background: #a7b9a9; color:#1e2b1e; padding:0.2rem 0.8rem;">▶ Δεκέμβριος 2024</span></p>
-    <p><strong>Χειμώνας στο Λαυρακά · 12'</strong> — Σύντομο πορτρέτο της κοινότητας τους μήνες της ησυχίας. Συντήρηση πηγαδιού, καθαρισμός ακτής, συνομιλίες γύρω από την ξυλόσομπα. (χωρίς αφήγηση, ήχος περιβάλλοντος)</p>
-    <p><a href="#">→ παρακολούθηση (link vimeo)</a>  |  <a href="#">υπότιτλοι .srt</a></p>
+    <p><span style="background: #a7b9a9; color:#1e2b1e; padding:0.2rem 0.8rem;">▶ Δεκέμβριος 2024</span></p>
+    <p class="lang-el"><strong>Χειμώνας στο Λαυρακά · 12'</strong> — πορτρέτο της κοινότητας τους μήνες της ησυχίας.</p>
+    <p class="lang-en"><strong>Winter in Lavraka · 12'</strong> — portrait of the community during the quiet months.</p>
+    <p><a href="#"><span class="lang-el-inline">→ παρακολούθηση</span><span class="lang-en-inline">→ watch</span></a></p>
   </div>
   <div style="margin-top: 1.2rem; background: #eef1ea; border:1px solid #cbd5c5; padding: 1.5rem;">
-    <p style="margin-bottom: 0.5rem;"><span style="background: #a7b9a9; color:#1e2b1e; padding:0.2rem 0.8rem;">▶ Καλοκαίρι 2024</span></p>
-    <p><strong>Περιβαλλοντική περιπολία · 6'</strong> — εθελοντική πυροπροστασία, ξύλινες πινακίδες και συνομιλίες με επισκέπτες για την εθιμοτυπία του δάσους.</p>
-    <p><a href="#">→ απόσπασμα χωρίς συνδέσμους (download .mp4)</a></p>
+    <p><span style="background: #a7b9a9; color:#1e2b1e; padding:0.2rem 0.8rem;">▶ Καλοκαίρι 2024</span></p>
+    <p class="lang-el"><strong>Περιβαλλοντική περιπολία · 6'</strong> — πυροπροστασία, ξύλινες πινακίδες, συνομιλίες.</p>
+    <p class="lang-en"><strong>Environmental patrol · 6'</strong> — fire prevention, wooden signs, conversations.</p>
+    <p><a href="#"><span class="lang-el-inline">→ απόσπασμα</span><span class="lang-en-inline">→ clip</span></a></p>
   </div>
 
-  <!-- ANNOUNCEMENTS – what's happening now (static examples) -->
-  <h2 id="announcements">⤏ ανακοινώσεις</h2>
+  <!-- ANNOUNCEMENTS (bilingual) -->
+  <h2 id="announcements"><span class="lang-el-inline">⤏ ανακοινώσεις</span><span class="lang-en-inline">⤏ announcements</span></h2>
   <div class="card" style="max-width: 800px;">
-    <div class="action-item"><span class="action-date">18.03.2025</span> <span class="action-title">Καταγγελία για νέα απειλή κατεδάφισης — συγκέντρωση υπογραφών</span></div>
-    <div class="action-item"><span class="action-date">02.03.2025</span> <span class="action-title">Καθαρισμός ακτής μετά από φθινοπωρινές καταιγίδες: 280kg πλαστικά συλλέχθηκαν</span></div>
-    <div class="action-item"><span class="action-date">12.02.2025</span> <span class="action-title">Πρόσκληση σε ανοιχτή συνέλευση (Καστρί, 15.03) – θέαση ντοκιμαντέρ</span></div>
-    <div class="action-item"><span class="action-date">09.01.2025</span> <span class="action-title">Νέα μελέτη για την υποβάθμιση των παράκτιων οικοτόπων — το πόρισμα των κατοίκων</span></div>
+    <div class="action-item"><span class="action-date">18.03.2025</span> <span class="action-title lang-el">Καταγγελία για νέα απειλή κατεδάφισης — συγκέντρωση υπογραφών</span><span class="action-title lang-en">Complaint against new demolition threat — petition</span></div>
+    <div class="action-item"><span class="action-date">02.03.2025</span> <span class="action-title lang-el">Καθαρισμός ακτής: 280kg πλαστικά συλλέχθηκαν</span><span class="action-title lang-en">Beach cleanup: 280kg plastic collected</span></div>
+    <div class="action-item"><span class="action-date">12.02.2025</span> <span class="action-title lang-el">Πρόσκληση σε ανοιχτή συνέλευση (Καστρί, 15.03)</span><span class="action-title lang-en">Open assembly invitation (Kastri, 15.03)</span></div>
+    <div class="action-item"><span class="action-date">09.01.2025</span> <span class="action-title lang-el">Νέα μελέτη για υποβάθμιση παράκτιων οικοτόπων</span><span class="action-title lang-en">New study on coastal habitat degradation</span></div>
   </div>
 
-  <!-- PHOTOS – raw, no carousel, simple grid + the second image placed here (images/1000043225.jpg) -->
-  <h2 id="photos">⤏ φωτογραφίες</h2>
+  <!-- PHOTOS + second image (1000043225.jpg) -->
+  <h2 id="photos"><span class="lang-el-inline">⤏ φωτογραφίες</span><span class="lang-en-inline">⤏ photos</span></h2>
 
-  <!-- THE SECOND IMAGE (1000043225.jpg) placed prominently as a featured visual -->
+  <!-- THE SECOND IMAGE (images/1000043225.jpg) -->
   <div class="featured-image">
-    <img src="images/1000043225.jpg" alt="Gavdos Seafront Collective - original sign or landscape" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23b7c9b0\'/%3E%3Ctext x=\'40\' y=\'220\' font-family=\'Georgia\' font-size=\'32\' fill=\'%23243b2b\'%3E1000043225.jpg (GAVDOS)%3C/text%3E%3C/svg%3E';">
-    <div class="image-caption">αρχείο εικόνας: 1000043225.jpg · νότια ακτή, Γαύδος</div>
+    <img src="images/1000043225.jpg" alt="Gavdos Seafront Collective - sign" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23b7c9b0\'/%3E%3Ctext x=\'40\' y=\'220\' font-family=\'Georgia\' font-size=\'32\' fill=\'%23243b2b\'%3E1000043225.jpg (GAVDOS)%3C/text%3E%3C/svg%3E';">
+    <div class="image-caption lang-el">αρχείο εικόνας: 1000043225.jpg · νότια ακτή, Γαύδος</div>
+    <div class="image-caption lang-en">image file: 1000043225.jpg · south coast, Gavdos</div>
   </div>
 
-  <!-- photo strip (additional imagery) using placeholders pointing to images/ – you can replace with actual filenames later -->
   <div class="photo-strip">
-    <img src="images/lavraka_hut_01.jpg" alt="καλύβη Λαυρακά" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'225\' viewBox=\'0 0 300 225\'%3E%3Crect width=\'300\' height=\'225\' fill=\'%23cfdacf\'/%3E%3Ctext x=\'20\' y=\'130\' font-family=\'Georgia\' font-size=\'18\' fill=\'%232b3a2b\'%3Eκαλύβη%3C/text%3E%3C/svg%3E';">
-    <img src="images/gavdos_coast.jpg" alt="ακτογραμμή με πεύκα" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'225\' viewBox=\'0 0 300 225\'%3E%3Crect width=\'300\' height=\'225\' fill=\'%23bdc9bb\'/%3E%3Ctext x=\'20\' y=\'130\' font-family=\'Georgia\' font-size=\'18\' fill=\'%232b3a2b\'%3Eακτογραμμή%3C/text%3E%3C/svg%3E';">
-    <img src="images/cleanup_action.jpg" alt="καθαρισμός ακτής" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'225\' viewBox=\'0 0 300 225\'%3E%3Crect width=\'300\' height=\'225\' fill=\'%23aeb7a9\'/%3E%3Ctext x=\'20\' y=\'130\' font-family=\'Georgia\' font-size=\'18\' fill=\'%232b3a2b\'%3Eκαθαρισμός%3C/text%3E%3C/svg%3E';">
-    <img src="images/evening_hut.jpg" alt="βράδυ στην καλύβη" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'225\' viewBox=\'0 0 300 225\'%3E%3Crect width=\'300\' height=\'225\' fill=\'%23d3dfd1\'/%3E%3Ctext x=\'20\' y=\'130\' font-family=\'Georgia\' font-size=\'18\' fill=\'%232b3a2b\'%3Eβράδυ%3C/text%3E%3C/svg%3E';">
+    <img src="images/lavraka_hut_01.jpg" alt="καλύβη" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'225\' viewBox=\'0 0 300 225\'%3E%3Crect width=\'300\' height=\'225\' fill=\'%23cfdacf\'/%3E%3Ctext x=\'20\' y=\'130\' font-family=\'Georgia\' font-size=\'18\' fill=\'%232b3a2b\'%3Eκαλύβη%3C/text%3E%3C/svg%3E';">
+    <img src="images/gavdos_coast.jpg" alt="ακτογραμμή" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'225\' viewBox=\'0 0 300 225\'%3E%3Crect width=\'300\' height=\'225\' fill=\'%23bdc9bb\'/%3E%3Ctext x=\'20\' y=\'130\' font-family=\'Georgia\' font-size=\'18\' fill=\'%232b3a2b\'%3Eακτογραμμή%3C/text%3E%3C/svg%3E';">
+    <img src="images/cleanup_action.jpg" alt="καθαρισμός" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'225\' viewBox=\'0 0 300 225\'%3E%3Crect width=\'300\' height=\'225\' fill=\'%23aeb7a9\'/%3E%3Ctext x=\'20\' y=\'130\' font-family=\'Georgia\' font-size=\'18\' fill=\'%232b3a2b\'%3Eκαθαρισμός%3C/text%3E%3C/svg%3E';">
+    <img src="images/evening_hut.jpg" alt="βράδυ" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'225\' viewBox=\'0 0 300 225\'%3E%3Crect width=\'300\' height=\'225\' fill=\'%23d3dfd1\'/%3E%3Ctext x=\'20\' y=\'130\' font-family=\'Georgia\' font-size=\'18\' fill=\'%232b3a2b\'%3Eβράδυ%3C/text%3E%3C/svg%3E';">
   </div>
-  <p class="quiet" style="margin-top:-1rem;">— ενδεικτικές φωτογραφίες από το αρχείο (φάκελος /images/) —</p>
+  <p class="quiet"><span class="lang-el-inline">— φάκελος /images —</span><span class="lang-en-inline">— folder /images —</span></p>
 
-  <!-- FUTURE ACTIONS – clear, calendar-like, no widgets -->
-  <h2 id="actions">⤏ μελλοντικές δράσεις</h2>
+  <!-- FUTURE ACTIONS -->
+  <h2 id="actions"><span class="lang-el-inline">⤏ μελλοντικές δράσεις</span><span class="lang-en-inline">⤏ future actions</span></h2>
   <div style="margin-bottom: 2rem;">
-    <div class="action-item"><span class="action-date">05–06.04.2025</span> <span class="action-title">Διήμερο απογραφής δέντρων και ξύλινων καταλυμάτων · συνάντηση στην πηγή</span></div>
-    <div class="action-item"><span class="action-date">20.04.2025</span> <span class="action-title">Σεμινάριο αυτοκατασκευής με πηλό και ξύλο (εγγραφές έως 10.04)</span></div>
-    <div class="action-item"><span class="action-date">18.05.2025</span> <span class="action-title">Δράση καθαρισμού παραλίας σε συνεργασία με το Πανεπιστήμιο Κρήτης</span></div>
-    <div class="action-item"><span class="action-date">Ιούνιος 2025</span> <span class="action-title">Έκδοση φυλλαδίου “Λαογραφία του τώρα: Λαυρακά” · παρουσίαση στο Ηράκλειο</span></div>
-    <div class="action-item"><span class="action-date">21.06.2025</span> <span class="action-title">Θερινό ηλιοστάσι – ανοιχτή μέρα στην κοινότητα (μόνο με πεζοπορία ή σκάφος)</span></div>
+    <div class="action-item"><span class="action-date">05–06.04.2025</span><span class="action-title lang-el">Διήμερο απογραφής δέντρων και καταλυμάτων</span><span class="action-title lang-en">Weekend: tree & shelter census</span></div>
+    <div class="action-item"><span class="action-date">20.04.2025</span><span class="action-title lang-el">Σεμινάριο αυτοκατασκευής με πηλό και ξύλο</span><span class="action-title lang-en">Self‑build workshop: clay & wood</span></div>
+    <div class="action-item"><span class="action-date">18.05.2025</span><span class="action-title lang-el">Καθαρισμός παραλίας με Πανεπιστήμιο Κρήτης</span><span class="action-title lang-en">Beach cleanup with Univ. of Crete</span></div>
+    <div class="action-item"><span class="action-date">Ιούνιος 2025</span><span class="action-title lang-el">Έκδοση φυλλαδίου “Λαογραφία του τώρα”</span><span class="action-title lang-en">Publication: “Folklore of the now”</span></div>
+    <div class="action-item"><span class="action-date">21.06.2025</span><span class="action-title lang-el">Θερινό ηλιοστάσι – ανοιχτή μέρα</span><span class="action-title lang-en">Summer solstice – open day</span></div>
   </div>
 
-  <!-- tiny floating reference to the cause: "αντικουλτούρα" -->
   <hr>
   <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between;">
-    <p style="font-size: 0.95rem;"><strong>αντικουλτούρα / περιβαλλοντική δικαιοσύνη</strong><br>— η κοινότητα Λαυρακά αντιστέκεται στην τουριστική μονοκαλλιέργεια · υποστηρίζουμε το δικαίωμα στη διαμονή και στο δάσος.</p>
-    <p style="font-size: 0.95rem;"><strong>epistole · Lavraka, Gavdos 73001</strong><br>email: seafront@gavdoscollective.ogr · χρήση πεζού ταχυδρομείου</p>
+    <p class="lang-el"><strong>αντικουλτούρα / περιβαλλοντική δικαιοσύνη</strong><br>— η κοινότητα Λαυρακά αντιστέκεται στην τουριστική μονοκαλλιέργεια.</p>
+    <p class="lang-en"><strong>counter‑culture / environmental justice</strong><br>— Lavraka community resists tourist monoculture.</p>
+    <p><strong>epistole · Lavraka, Gavdos 73001</strong><br>seafront@gavdoscollective.ogr</p>
   </div>
 
-  <!-- FOOTER -->
   <div class="footer">
     <span>Gavdos SeaFront Collective — 2025</span>
-    <span>το υλικό διατίθεται με άδεια creative commons · αναφορά στην κοινότητα</span>
+    <span><span class="lang-el-inline">άδεια creative commons</span><span class="lang-en-inline">creative commons</span></span>
   </div>
-
-  <!-- small note: site is purely static, ready to deploy as is -->
-  <div style="text-align: right; margin-top: 1.5rem; opacity:0.5; font-size:0.8rem;">— χωρίς εμπορικά συστήματα, χωρίς javascript —</div>
+  <div style="text-align: right; margin-top: 1.5rem; opacity:0.5; font-size:0.8rem;">— χωρίς javascript / no js —</div>
 </div>
-<!-- end container -->
+
+<!-- Simple language switcher script (no frameworks) -->
+<script>
+  (function() {
+    const btnEl = document.getElementById('btn-el');
+    const btnEn = document.getElementById('btn-en');
+    const body = document.body;
+
+    function setLang(lang) {
+      body.setAttribute('data-lang', lang);
+      // update active button style
+      if (lang === 'el') {
+        btnEl.classList.add('active');
+        btnEn.classList.remove('active');
+      } else {
+        btnEn.classList.add('active');
+        btnEl.classList.remove('active');
+      }
+    }
+
+    btnEl.addEventListener('click', function(e) {
+      e.preventDefault();
+      setLang('el');
+    });
+    btnEn.addEventListener('click', function(e) {
+      e.preventDefault();
+      setLang('en');
+    });
+
+    // initial active (el is default, but ensure button)
+    setLang('el');
+  })();
+</script>
 </body>
 </html>

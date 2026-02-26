@@ -1,3 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gavdos SeaFront · collective</title>
+  <style>
+    /* === BASE & RESET === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f1efe7;
+      color: #1e2b28;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      line-height: 1.5;
+      font-weight: 300;
+      font-size: 1.05rem;
+      padding: 2rem 1rem;
+      border-top: 6px solid #8f9e8b;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: rgba(255, 255, 250, 0.5);
+      padding: 2.5rem 2rem;
+      border-radius: 0;
+      box-shadow: 0 0 0 1px #d4d9ce;
+    }
+
+    h1, h2, h3 {
+      font-weight: 350;
+      letter-spacing: 0.03em;
+    }
+
+    /* Logo area */
+    .logo-area {
+      border-bottom: 1px solid #b1b9aa;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
+      text-align: left;
+    }
+    .logo-image {
+      max-width: 100%;
+      height: auto;
+      max-height: 150px;
+      width: auto;
+      filter: grayscale(0.2) contrast(1.02);
+      border: 1px solid #d0d9cc;
+      padding: 0.3rem;
+      background: #f8faf5;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 2.8rem 0 1.2rem 0;
+      border-left: 1.2rem solid #c1cdbb;
+      padding-left: 1.2rem;
+      font-weight: 380;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      margin: 2rem 0 0.8rem 0;
+      font-style: italic;
+      color: #3f5247;
+    }
+
+    p, li, blockquote {
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
+
+    a {
+      color: #2f5e4f;
+      text-decoration: underline wavy #bfcfc1 1px;
+      text-underline-offset: 4px;
+      transition: color 0.15s ease;
+    }
+
+    a:hover {
+      color: #000;
+      text-decoration: underline wavy #7c8f7a 2px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #cfd7cc;
+      margin: 3rem 0 2.5rem;
+      width: 40%;
+      margin-left: 0;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem 1.8rem;
+      margin-top: 1.2rem;
+    }
+
+    .card {
+      background: #fafbf7;
+      border: 1px solid #d6dfd0;
+      padding: 1.8rem 1.4rem 2rem 1.4rem;
+      transition: background 0.2s;
+      break-inside: avoid;
+    }
+
+    .card:hover {
+      background: #f5f6ef;
+      border-color: #b4c0ae;
+    }
+
+    .card small {
+      color: #657a6a;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    ul, ol {
+      margin-left: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.3rem;
+    }
+
+    .excerpt {
+      font-size: 1rem;
+      border-left: 3px solid #b3bfb0;
+      padding: 0.8rem 0 0.8rem 1.5rem;
+      background-color: #f3f5ef;
+      margin: 1.5rem 0;
+    }
+
+    .photo-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin: 1.5rem 0 2.5rem 0;
+      border-top: 1px dashed #a4b4a0;
+      border-bottom: 1px dashed #a4b4a0;
+      padding: 1.8rem 0;
+    }
+    .photo-strip img {
+      max-width: 100%;
+      height: auto;
+      width: calc(25% - 0.6rem);
+      min-width: 150px;
+      flex: 1 1 auto;
+      filter: grayscale(0.3) contrast(0.95);
+      border: 1px solid #dddddd;
+      background: #eceade;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+    }
+
+    .featured-image {
+      margin: 2rem 0;
+      border: 1px solid #b7c4b2;
+      background: #f0f3ea;
+      padding: 1rem;
+      display: inline-block;
+      max-width: 100%;
+    }
+    .featured-image img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(0.2);
+    }
+    .image-caption {
+      font-size: 0.9rem;
+      color: #546e5a;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .action-item {
       display: flex;
       gap: 1rem;
       align-items: baseline;
@@ -70,6 +253,18 @@
       color: #5f6f5f;
     }
 
+    /* social links */
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    .social-links a {
+      text-decoration: underline wavy #bfcfc1 1px;
+      font-size: 1.1rem;
+    }
+
     .tagline {
       font-style: italic;
       color: #516651;
@@ -130,16 +325,16 @@
     <button class="lang-btn" id="btn-en">ENG</button>
   </div>
 
-  <!-- LOGO: using the uploaded image afc8d8763a6f51501e7354f830ee1d90-V.jpg -->
+  <!-- LOGO: uploaded image afc8d8763a6f51501e7354f830ee1d90-V.jpg -->
   <div class="logo-area">
     <img src="images/afc8d8763a6f51501e7354f830ee1d90-V.jpg" alt="Gavdos SeaFront Collective logo" class="logo-image" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'150\' viewBox=\'0 0 400 150\'%3E%3Crect width=\'400\' height=\'150\' fill=\'%23b7c9b0\'/%3E%3Ctext x=\'40\' y=\'90\' font-family=\'Georgia\' font-size=\'32\' fill=\'%23243b2b\'%3EGAVDOS%3C/text%3E%3C/svg%3E';">
   </div>
 
-  <!-- bilingual tagline (switches) -->
-  <div class="tagline lang-el">Διαφύλαξη · Αυτοσυντήρηση · Γαύδος</div>
-  <div class="tagline lang-en">preservation · self‑sufficiency · Gavdos</div>
+  <!-- bilingual tagline -->
+  <div class="tagline lang-el">διαφύλαξη · αυτοσυντήρηση · ακτογραμμή Λαυρακά</div>
+  <div class="tagline lang-en">preservation · self‑sufficiency · Lavraka coastline</div>
 
-  <!-- navigation (simple anchor links – same for both languages, just labels change) -->
+  <!-- navigation -->
   <div class="top-nav">
     <a href="#papers"><span class="lang-el-inline">→ κείμενα / μελέτες</span><span class="lang-en-inline">→ writings / papers</span></a>
     <a href="#video"><span class="lang-el-inline">→ βίντεο</span><span class="lang-en-inline">→ video</span></a>
@@ -148,21 +343,21 @@
     <a href="#actions"><span class="lang-el-inline">→ μελλοντικές δράσεις</span><span class="lang-en-inline">→ future actions</span></a>
   </div>
 
-  <!-- INTRODUCTION – bilingual blocks -->
+  <!-- INTRODUCTION -->
   <section class="lang-el">
-    <p style="font-size: 1.2rem;">Το <strong>Gavdos SeaFront Collective</strong> ξεκινά από το νοτιότερο ακρογιάλι — το πευκόφυτο Λαυρακά. Για πάνω από τριάντα χρόνια, μια κοινότητα ανθρώπων ζει σε αυτοδημιούργητες καλύβες, μοιραζόμενη μια βαθιά φροντίδα για τη γη και τη θάλασσα. Απέναντι στην τουριστική πίεση, συγκεντρωθήκαμε για να τεκμηριώσουμε, να υπερασπιστούμε και να συνεχίσουμε τη <em>λαογραφία του τώρα</em>. Αυτή η ιστοσελίδα είναι η κοινή μας βάση: να μοιραζόμαστε παρατηρήσεις, να αρχειοθετούμε επιστημονική δουλειά και να ανακοινώνουμε συλλογικές δράσεις που προστατεύουν τον άγριο χαρακτήρα της Γαύδου και το δικαίωμα σε έναν απλό τρόπο ζωής.</p>
+    <p style="font-size: 1.2rem;">Το <strong>Gavdos SeaFront Collective</strong> ξεκινά από το νοτιότερο ακρογιάλι — το πευκόφυτο Λαυρακά. Για πάνω από τριάντα χρόνια, μια κοινότητα ανθρώπων ζει σε αυτοδημιούργητες καλύβες, μοιραζόμενη μια βαθιά φροντίδα για τη γη και τη θάλασσα. Απέναντι στην τουριστική πίεση και τη διοικητική απαλοιφή, συγκεντρωθήκαμε για να τεκμηριώσουμε, να υπερασπιστούμε και να συνεχίσουμε τη <em>λαογραφία του τώρα</em>. Αυτή η ιστοσελίδα είναι η κοινή μας βάση: να μοιραζόμαστε παρατηρήσεις, να αρχειοθετούμε επιστημονική δουλειά και να ανακοινώνουμε συλλογικές δράσεις που προστατεύουν τον άγριο χαρακτήρα της Γαύδου και το δικαίωμα σε έναν απλό, αβλαβή τρόπο ζωής.</p>
   </section>
   <section class="lang-en">
-    <p style="font-size: 1.2rem;">The <strong>Gavdos SeaFront Collective</strong> emerges from the southernmost shore — the pine‑clad cove of Lavraka. For more than thirty years, a community of people has lived in self‑built huts, sharing a deep ethics of care for the land and sea. In the face of tourism pressure, we gather to document, defend, and continue the <em>folklore of the now</em>. This site is our common base: to share observations, archive scientific work, and announce collective actions that protect both the wild character of Gavdos and the right to live simply, without harm.</p>
+    <p style="font-size: 1.2rem;">The <strong>Gavdos SeaFront Collective</strong> emerges from the southernmost shore — the pine‑clad cove of Lavraka. For more than thirty years, a community of people has lived in self‑built huts, sharing a deep ethics of care for the land and sea. In the face of tourism pressure and administrative erasure, we gather to document, defend, and continue the <em>folklore of the now</em>. This site is our common base: to share observations, archive scientific work, and announce collective actions that protect both the wild character of Gavdos and the right to live simply, without harm.</p>
   </section>
 
-  <!-- bilingual excerpt -->
+  <!-- excerpt -->
   <div class="excerpt lang-el">“Η κοινότητα έχει τους δικούς της μύθους και έθιμα που αντικατοπτρίζουν τις κοινές τους εμπειρίες … οι πεποιθήσεις τους βασίζονται στον ενστερνισμό του περιβαλλοντισμού και της βιωσιμότητας.” <br>— από <em>Τουρισμός και αντικουλτούρα · το μέλλον του Λαυρακά</em></div>
   <div class="excerpt lang-en">“The community has its own myths and customs reflecting their shared experiences … their beliefs are grounded in environmentalism, sustainability, social justice, and the rejection of consumerism.” <br>— from <em>Tourism and counter‑culture: the future of Lavraka</em></div>
 
   <hr>
 
-  <!-- SCIENTIFIC PAPERS (titles remain mostly greek/english; bilingual headings) -->
+  <!-- SCIENTIFIC PAPERS -->
   <h2 id="papers"><span class="lang-el-inline">⤏ σημειώσεις / επιστημονικά</span><span class="lang-en-inline">⤏ writings / papers</span></h2>
   <div class="section-grid">
     <div class="card">
@@ -188,7 +383,7 @@
     </div>
   </div>
 
-  <!-- VIDEOS (bilingual) -->
+  <!-- VIDEOS -->
   <h2 id="video"><span class="lang-el-inline">⤏ καταγραφή · βίντεο</span><span class="lang-en-inline">⤏ video</span></h2>
   <div style="background: #eef1ea; border:1px solid #cbd5c5; padding: 1.5rem;">
     <p><span style="background: #a7b9a9; color:#1e2b1e; padding:0.2rem 0.8rem;">▶ Δεκέμβριος 2024</span></p>
@@ -203,7 +398,7 @@
     <p><a href="#"><span class="lang-el-inline">→ απόσπασμα</span><span class="lang-en-inline">→ clip</span></a></p>
   </div>
 
-  <!-- ANNOUNCEMENTS (bilingual) -->
+  <!-- ANNOUNCEMENTS -->
   <h2 id="announcements"><span class="lang-el-inline">⤏ ανακοινώσεις</span><span class="lang-en-inline">⤏ announcements</span></h2>
   <div class="card" style="max-width: 800px;">
     <div class="action-item"><span class="action-date">18.03.2025</span> <span class="action-title lang-el">Καταγγελία για νέα απειλή κατεδάφισης — συγκέντρωση υπογραφών</span><span class="action-title lang-en">Complaint against new demolition threat — petition</span></div>
@@ -215,7 +410,7 @@
   <!-- PHOTOS + second image (1000043225.jpg) -->
   <h2 id="photos"><span class="lang-el-inline">⤏ φωτογραφίες</span><span class="lang-en-inline">⤏ photos</span></h2>
 
-  <!-- THE SECOND IMAGE (images/1000043225.jpg) -->
+  <!-- SECOND IMAGE (images/1000043225.jpg) -->
   <div class="featured-image">
     <img src="images/1000043225.jpg" alt="Gavdos Seafront Collective - sign" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23b7c9b0\'/%3E%3Ctext x=\'40\' y=\'220\' font-family=\'Georgia\' font-size=\'32\' fill=\'%23243b2b\'%3E1000043225.jpg (GAVDOS)%3C/text%3E%3C/svg%3E';">
     <div class="image-caption lang-el">αρχείο εικόνας: 1000043225.jpg · νότια ακτή, Γαύδος</div>
@@ -247,14 +442,19 @@
     <p><strong>epistole · Lavraka, Gavdos 73001</strong><br>seafront@gavdoscollective.ogr</p>
   </div>
 
+  <!-- FOOTER with SOCIAL MEDIA LINKS (Facebook & Instagram) -->
   <div class="footer">
     <span>Gavdos SeaFront Collective — 2025</span>
+    <div class="social-links">
+      <a href="#" target="_blank"><span class="lang-el-inline">Facebook</span><span class="lang-en-inline">Facebook</span></a>
+      <a href="#" target="_blank"><span class="lang-el-inline">Instagram</span><span class="lang-en-inline">Instagram</span></a>
+    </div>
     <span><span class="lang-el-inline">άδεια creative commons</span><span class="lang-en-inline">creative commons</span></span>
   </div>
   <div style="text-align: right; margin-top: 1.5rem; opacity:0.5; font-size:0.8rem;">— χωρίς javascript / no js —</div>
 </div>
 
-<!-- Simple language switcher script (no frameworks) -->
+<!-- Simple language switcher script -->
 <script>
   (function() {
     const btnEl = document.getElementById('btn-el');
@@ -263,7 +463,6 @@
 
     function setLang(lang) {
       body.setAttribute('data-lang', lang);
-      // update active button style
       if (lang === 'el') {
         btnEl.classList.add('active');
         btnEn.classList.remove('active');
@@ -282,9 +481,8 @@
       setLang('en');
     });
 
-    // initial active (el is default, but ensure button)
     setLang('el');
   })();
 </script>
 </body>
-           </html>
+                                   </html>
